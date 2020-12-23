@@ -6,14 +6,12 @@
 #include <string>
 #include <vector>
 
-using std::fstream;
 using std::istream;
 using std::ostream;
-using std::ostringstream;
 using std::string;
 using std::vector;
 
-#include "Timer.h"
+#include "../Util/Timer.h"
 
 class Algorithm {
  public:

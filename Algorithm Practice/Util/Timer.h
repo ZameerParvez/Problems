@@ -10,9 +10,19 @@ using std::chrono::time_point;
 
 #include "Logger.h"
 
+// TODO: ENABLETIMER should be defined by some config at compile time, should also be dependant on MSGINFO not being 0
+#define ENABLETIMER
+
+#ifdef ENABLETIMER
+  #define TIMER(message) Timer t{message}
+#else
+  #define TIMER(message)
+#endif
+
 // not sure if high resolution clock or steady clock
 using timerClockType = std::chrono::high_resolution_clock;
 
+// This logs the time between the timers construction and destruction, so it is suitable for logging the amount of time a block of code takes to execute
 class Timer {
  private:
   static const int loglevel = 10;
@@ -30,6 +40,6 @@ class Timer {
     ostringstream os;
     os << message << " : " << duration << " microseconds";  // micro seconds may be too small
     string temp = os.str();
-    Logger::log(temp, loglevel);
+    LOG(temp, loglevel);
   }
 };
