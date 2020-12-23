@@ -5,6 +5,7 @@ set(
   SOURCES 
   0000-Test.cpp
   0001-AddTwoNumbers.cpp
+  0002-LongestCommonSubstr1Char.cpp
 )
 
 # add the Util library

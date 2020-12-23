@@ -4,7 +4,7 @@
 
 struct AlgorithmWrapper {
   Algorithm* algorithm;
-  
+
   AlgorithmWrapper(Algorithm* a = nullptr) : algorithm{a} {}
   ~AlgorithmWrapper() {
     delete algorithm;
@@ -21,6 +21,9 @@ AlgorithmWrapper choose(int i) {
       break;
     case 1:
       a.algorithm = new AddTwoNumbers{};
+      break;
+    case 2:
+      a.algorithm = new LCS1Char{};
       break;
     default:
       a.algorithm = new Sum{};
