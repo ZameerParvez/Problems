@@ -1,12 +1,11 @@
 #include<iostream>
 #include<vector>
 #include<sstream>
-#include<thread>
 
-#include "AlgorithmCollection.h"
+#include "0000-Test.h"
 
 int Sum::parseInput(istream& input) {
-  Logger::log("This should be logging the input stage of the summing algorithm", 50);
+  LOG("This should be logging the input stage of the summing algorithm", 50);
   string line;
   getline(input,line);
   std::stringstream s{line};
@@ -25,12 +24,13 @@ int Sum::parseInput(istream& input) {
 }
 
 int Sum::solve(ostream& output) {
-  Timer t{"This should be a simple test of timing summing some numbers"};
+  TIMER("This should be a simple test of timing summing some numbers");
   for (int i : numbers) {
     sum += i;
   }
 
   output << "Solution: " << sum << std::endl;
+  output << "THIS IS THE TEST ALGORITHM,  WHICH COULD MEAN THAT THE ALGORITHM ID ENTERED WAS WRONG" << std::endl;
 
   return 0;
 }
