@@ -1,12 +1,12 @@
 #pragma once
 
 // TODO: get defenitions from cmake or cmake generated header file
-// IDEA: instead of singleton logger it could be useful to have loggers for specific purposes, but I haven't thought much about how it would affect the use of the macros (the macro could be passed a logger to log too). Logger instances could be stored in a static vector, so that the logger could be recalled at another time
+// IDEA: instead of singleton logger it could be useful to have loggers for specific purposes, but I haven't thought much about how it would affect the use of the macros (the macro could be passed a logger to log too). Logger instances could be stored in a static vector, so that the logger could be recalled at another time, or use instances of templates
 // IDEA: The logger isn't very useful if it only logs to a stream when the output operator is called, becasause there are occasions where the program could terminate before the log is output to the stream. I could log directly to a stream instead, which would involve changing the log call to take a ostream, and not store messages in a buffer. If I allowed logger instances this could be used to identify each logger.
 // TODO: Implement the ideas above
 
-// LOGSTDOUT determines if logs are output to stdout as well as being stored in the message buffer
-// #define LOGSTDOUT
+// LOGSTDOUT determines if logs are output to stdout as well as being stored in the message buffer, an immediatley outputs logs to stdout when they are made
+#define LOGSTDOUT
 
 // LEVEL determines which level log messages will be logged, only messages less than LEVEL
 #ifndef LEVEL

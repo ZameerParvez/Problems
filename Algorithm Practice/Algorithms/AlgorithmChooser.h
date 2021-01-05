@@ -25,6 +25,9 @@ AlgorithmWrapper choose(int i) {
     case 2:
       a.algorithm = new LCS1Char{};
       break;
+    case 3:
+      a.algorithm = new CoinChange{};
+      break;
     default:
       a.algorithm = new Sum{};
       break;
