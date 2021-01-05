@@ -1,8 +1,6 @@
 #include <vector>
 #include <ostream>
 
-#include "../Util/Logger.h"
-
 using std::ostream;
 // IDEA: need to decide if should use & or pointer in return types
 
