@@ -28,6 +28,9 @@ AlgorithmWrapper choose(int i) {
     case 3:
       a.algorithm = new CoinChange{};
       break;
+    case 4:
+      a.algorithm = new SmallestSubstrWithSameOrder{};
+      break;
     default:
       a.algorithm = new Sum{};
       break;

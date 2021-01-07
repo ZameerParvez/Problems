@@ -7,6 +7,7 @@ set(
   0001-AddTwoNumbers.cpp
   0002-LongestCommonSubstr1Char.cpp
   0003-CoinChange.cpp
+  0004-SmallestSubstrWithSameOrder.cpp
 )
 
 # add the Util library
