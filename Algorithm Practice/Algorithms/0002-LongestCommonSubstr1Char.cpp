@@ -1,5 +1,7 @@
 #include "0002-LongestCommonSubstr1Char.h"
 
+using namespace Algorithms;
+
 int LCS1Char::parseInput(istream& input) {
   LOG("Reading Input for LongestCommonSubstr1Char", 50);
   input >> s;

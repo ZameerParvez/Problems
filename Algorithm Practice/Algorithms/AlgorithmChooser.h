@@ -2,39 +2,24 @@
 
 #include "AlgorithmCollection.h"
 
-struct AlgorithmWrapper {
-  Algorithm* algorithm;
-
-  AlgorithmWrapper(Algorithm* a = nullptr) : algorithm{a} {}
-  ~AlgorithmWrapper() {
-    delete algorithm;
-  }
-};
+namespace Algorithms {
 
 // This function uses the integer given to return a child instance of the algorithm
 AlgorithmWrapper choose(int i) {
-  AlgorithmWrapper a{};
-
   switch (i) {
     case 0:
-      a.algorithm = new Sum{};
-      break;
+      return AlgorithmWrapper{new Test{}};
     case 1:
-      a.algorithm = new AddTwoNumbers{};
-      break;
+      return AlgorithmWrapper{new AddTwoNumbers{}};
     case 2:
-      a.algorithm = new LCS1Char{};
-      break;
+      return AlgorithmWrapper{new LCS1Char{}};
     case 3:
-      a.algorithm = new CoinChange{};
-      break;
+      return AlgorithmWrapper{new CoinChange{}};
     case 4:
-      a.algorithm = new SmallestSubstrWithSameOrder{};
-      break;
+      return AlgorithmWrapper{new SmallestSubstrWithSameOrder{}};
     default:
-      a.algorithm = new Sum{};
-      break;
+      return AlgorithmWrapper{new Test{}};
   }
-
-  return a;
 }
+
+}  // namespace Algorithms

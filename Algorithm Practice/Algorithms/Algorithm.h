@@ -1,6 +1,5 @@
 #pragma once
 
-#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -12,6 +11,8 @@ using std::string;
 using std::vector;
 
 #include "../Util/Timer.h"
+
+namespace Algorithms {
 
 class Algorithm {
  public:
@@ -26,3 +27,15 @@ class Algorithm {
   virtual int parseInput(istream& input) = 0;  // this should parse the input from the stream into some private member varibles
   virtual int solve(ostream& output) = 0;      // osteam so output could go to terminal or text file
 };
+
+struct AlgorithmWrapper {
+  Algorithm* algorithm;
+
+  AlgorithmWrapper(Algorithm* a = nullptr) : algorithm{a} {}
+
+  ~AlgorithmWrapper() {
+    delete algorithm;
+  }
+};
+
+}  // namespace Algorithms

@@ -1,12 +1,12 @@
 #include <fstream>
 
-#include "AlgorithmCollection.h"
 #include "AlgorithmChooser.h"
+#include "AlgorithmCollection.h"
 
 #define ENABLETIMER
 
-
-static char* helpMessage = "\
+static char* helpMessage =
+"\
 Example Useage:\n\
 \t./Practice <algorithm-id> <input-path> <output-path>\n\
 \n\
@@ -33,7 +33,7 @@ bool handleInput(int argc, char const* argv[]) {
   }
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
   int callok = handleInput(argc, argv);
   if (!callok) {
     std::cout << helpMessage << std::endl;
@@ -42,17 +42,17 @@ int main(int argc, char const *argv[]) {
 
   std::ifstream in;
   std::ofstream out;
-  
+
   in.open(infile, std::ios_base::in);
   if (outfile.size() != 0) out.open(outfile, std::ios_base::out);
 
-  AlgorithmWrapper algo = choose(algoID);
+  Algorithms::AlgorithmWrapper algo = Algorithms::choose(algoID);
   if (outfile.size() != 0) {
     out.open(outfile, std::ios_base::out);
-    algo.algorithm->run(in,out);
+    algo.algorithm->run(in, out);
     out.close();
   } else {
-    algo.algorithm->run(in,std::cout);
+    algo.algorithm->run(in, std::cout);
   }
   in.close();
 

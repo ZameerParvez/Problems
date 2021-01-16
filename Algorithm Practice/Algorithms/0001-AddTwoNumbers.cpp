@@ -1,7 +1,9 @@
 #include "0001-AddTwoNumbers.h"
 
+using namespace Algorithms;
+
 // returns a doubly linked list of a decimal number, where the least significant digit is at index 0
-DoublyLinkedList<int> intStringToLinkedList(string intString) {
+DoublyLinkedList<int> AddTwoNumbers::intStringToLinkedList(string intString) {
   DoublyLinkedList<int> list;
 
   for (int i = 0; i < intString.size() ; i++) {

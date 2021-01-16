@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <vector>
 
+using namespace Algorithms;
+
 int SmallestSubstrWithSameOrder::parseInput(istream& input) {
   LOG("Reading input for SmallestSubstrWithSameOrder", 50);
 
