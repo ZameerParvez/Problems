@@ -6,6 +6,8 @@
 
 #include "../DataStructures/ArrayList.h"
 
+using namespace Algorithms;
+
 int CoinChange::parseInput(istream& input) {
   LOG("Reading inputs for the CoinChange Problem", 50);
 
