@@ -4,6 +4,8 @@
 
 namespace Algorithms {
 
+// IDEA: automate choosing algorithms, by doing something like keeping a large vector, where the algorithms can be retrieved by their index
+
 // This function uses the integer given to return a child instance of the algorithm
 AlgorithmWrapper choose(int i) {
   switch (i) {

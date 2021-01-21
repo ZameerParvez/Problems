@@ -3,7 +3,7 @@
 using namespace Algorithms;
 
 int LCS1Char::parseInput(istream& input) {
-  LOG("Reading Input for LongestCommonSubstr1Char", 50);
+  LOG(50, "Reading Input for LongestCommonSubstr1Char");
   input >> s;
   return 0;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Algorithm.h"
 
 namespace Algorithms {
@@ -8,7 +10,7 @@ namespace Algorithms {
 // e.g. n=5 , denominations=[1,3,5], there are only 3 ways to make 5 from these denominations: {1,1,1,1,1},{1,1,3},{5}
 class CoinChange : public Algorithm {
  private:
-  vector<int> denominations{};
+  std::vector<int> denominations{};
   int target = 0;
 
  public:

@@ -1,15 +1,13 @@
 #include "0003-CoinChange.h"
 
-#include <ostream>
-#include <sstream>
-#include <vector>
-
 #include "../DataStructures/ArrayList.h"
+
+using std::vector;
 
 using namespace Algorithms;
 
 int CoinChange::parseInput(istream& input) {
-  LOG("Reading inputs for the CoinChange Problem", 50);
+  LOG(50, "Reading inputs for the CoinChange Problem");
 
   string line;
   getline(input, line);
