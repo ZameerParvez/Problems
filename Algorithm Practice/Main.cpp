@@ -1,11 +1,13 @@
 #include <fstream>
+#include <string>
 
 #include "AlgorithmChooser.h"
 #include "AlgorithmCollection.h"
+#include "Util/Utils.h"
 
-#define ENABLETIMER
+using std::string;
 
-static char* helpMessage =
+static const char helpMessage[] =
 "\
 Example Useage:\n\
 \t./Practice <algorithm-id> <input-path> <output-path>\n\
@@ -56,7 +58,9 @@ int main(int argc, char const* argv[]) {
   }
   in.close();
 
-  Logger& l = Logger::getLogger();
+  // not really needed, only here for future if I would want to output different loggers to different places
+  auto& l = Util::Logger<0>::getLogger();
   std::cout << l << std::endl;
+
   return 0;
 }

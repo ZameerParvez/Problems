@@ -8,6 +8,7 @@ project(Practice VERSION 1.0)
 add_library(algo_compiler_flags INTERFACE)
 target_compile_features(algo_compiler_flags INTERFACE cxx_std_17)
 
+# TODO: improve use of compiler flags, for realease and debug builds
 set(gcc_like_cxx "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU>")
 set(msvc_cxx "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 target_compile_options(algo_compiler_flags INTERFACE

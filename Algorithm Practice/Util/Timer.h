@@ -1,12 +1,6 @@
 #pragma once
 
 #include <chrono>
-#include <sstream>
-#include <string>
-
-using std::ostringstream;
-using std::string;
-using std::chrono::time_point;
 
 #include "Logger.h"
 
@@ -14,10 +8,15 @@ using std::chrono::time_point;
 #define ENABLETIMER
 
 #ifdef ENABLETIMER
-  #define TIMER(message) Timer t{message}
+  #define TIMER(message) \
+  Util::Timer t { message }
 #else
   #define TIMER(message)
 #endif
+
+namespace Util {
+
+using std::chrono::time_point;
 
 // not sure if high resolution clock or steady clock
 using timerClockType = std::chrono::high_resolution_clock;
@@ -37,9 +36,8 @@ class Timer {
   ~Timer() {
     auto dt = timerClockType::now() - starttime;
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(dt).count();
-    ostringstream os;
-    os << message << " : " << duration << " microseconds";  // micro seconds may be too small
-    string temp = os.str();
-    LOG(temp, loglevel);
+    LOG(loglevel, "% : % microseconds", message, duration);
   }
 };
+
+}  // namespace Util

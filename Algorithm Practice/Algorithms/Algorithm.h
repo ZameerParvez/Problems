@@ -3,16 +3,14 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
+
+#include "../Util/Utils.h"
+
+namespace Algorithms {
 
 using std::istream;
 using std::ostream;
 using std::string;
-using std::vector;
-
-#include "../Util/Timer.h"
-
-namespace Algorithms {
 
 class Algorithm {
  public:

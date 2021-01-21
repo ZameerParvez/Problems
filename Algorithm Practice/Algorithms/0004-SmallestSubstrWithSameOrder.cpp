@@ -1,14 +1,11 @@
 #include "0004-SmallestSubstrWithSameOrder.h"
 
-#include <iostream>
-#include <sstream>
 #include <unordered_map>
-#include <vector>
 
 using namespace Algorithms;
 
 int SmallestSubstrWithSameOrder::parseInput(istream& input) {
-  LOG("Reading input for SmallestSubstrWithSameOrder", 50);
+  LOG(50, "Reading input for SmallestSubstrWithSameOrder");
 
   getline(input, inputstring);
 

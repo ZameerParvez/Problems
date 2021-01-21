@@ -19,7 +19,7 @@ DoublyLinkedList<int> AddTwoNumbers::intStringToLinkedList(string intString) {
 }
 
 int AddTwoNumbers::parseInput(istream& input) {
-  LOG("Reading Input for AddTwoNumbers", 50);
+  LOG(50, "Reading Input for AddTwoNumbers");
   string num1, num2;
   input >> num1 >> num2;
 
