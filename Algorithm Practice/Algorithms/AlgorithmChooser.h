@@ -21,6 +21,8 @@ AlgorithmWrapper choose(int i) {
       return AlgorithmWrapper{new SmallestSubstrWithSameOrder{}};
     case 5:
       return AlgorithmWrapper{new RotateRightK{}};
+    case 6:
+      return AlgorithmWrapper{new DaysUntilHotter{}};
     default:
       return AlgorithmWrapper{new Test{}};
   }

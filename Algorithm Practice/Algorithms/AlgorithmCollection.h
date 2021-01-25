@@ -7,3 +7,4 @@
 #include "0003-CoinChange.h"
 #include "0004-SmallestSubstrWithSameOrder.h"
 #include "0005-RotateRightByK.h"
+#include "0006-DaysUntilHotter.h"

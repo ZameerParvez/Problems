@@ -9,6 +9,7 @@ set(
   0003-CoinChange.cpp
   0004-SmallestSubstrWithSameOrder.cpp
   0005-RotateRightByK.cpp
+  0006-DaysUntilHotter.cpp
 )
 
 # add the Util library
