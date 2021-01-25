@@ -34,8 +34,8 @@ int AddTwoNumbers::solve(ostream& output) {
   DoublyLinkedList<int> result{};
 
   // result[i] = l1[i] + l2[i] + c[i-1]
-  ListNode<int>* currl1 = l1.getHead();
-  ListNode<int>* currl2 = l2.getHead();
+  ListNode<int>* currl1 = l1.head;
+  ListNode<int>* currl2 = l2.head;
   int carry = 0;
 
   while(currl1 != nullptr || currl2 != nullptr) {

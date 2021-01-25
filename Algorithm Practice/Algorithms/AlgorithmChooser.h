@@ -19,6 +19,8 @@ AlgorithmWrapper choose(int i) {
       return AlgorithmWrapper{new CoinChange{}};
     case 4:
       return AlgorithmWrapper{new SmallestSubstrWithSameOrder{}};
+    case 5:
+      return AlgorithmWrapper{new RotateRightK{}};
     default:
       return AlgorithmWrapper{new Test{}};
   }
