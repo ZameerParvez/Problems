@@ -8,6 +8,7 @@ set(
   0002-LongestCommonSubstr1Char.cpp
   0003-CoinChange.cpp
   0004-SmallestSubstrWithSameOrder.cpp
+  0005-RotateRightByK.cpp
 )
 
 # add the Util library

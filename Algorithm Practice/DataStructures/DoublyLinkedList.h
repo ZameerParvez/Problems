@@ -1,5 +1,7 @@
-#include <vector>
+#pragma once
+
 #include <ostream>
+#include <vector>
 
 using std::ostream;
 // IDEA: need to decide if should use & or pointer in return types
@@ -27,8 +29,10 @@ struct ListNode {
     return !(*this == l);
   }
 
-  template<typename U>
-  friend ostream& operator<<(ostream& o, const ListNode<U>& l);
+  friend ostream& operator<<(ostream& o, const ListNode<T>& l) {
+    o << l.data;
+    return o;
+  }
 };
 
 /*
@@ -39,8 +43,6 @@ template <typename T>
 class DoublyLinkedList {
  private:
   int size = 0;
-  ListNode<T>* head = nullptr;
-  ListNode<T>* tail = nullptr;
 
   // Initialises head and tail if they are both null, and returns a pointer to the new node if head and tail are null, otherwise returns null
   ListNode<T>* initialiseFirstElement(const T& data) {
@@ -56,7 +58,7 @@ class DoublyLinkedList {
 
   void copyListContent(const DoublyLinkedList<T>& list) {
     this->clearLinkedList();
-    
+
     this->head = new ListNode<T>{list.head->data};
     this->size = 1;
 
@@ -80,6 +82,10 @@ class DoublyLinkedList {
   }
 
  public:
+  // IDEA: not a good idea for this, but originally had getters/setters, but this is equivalent in the way I was using it
+  ListNode<T>* head = nullptr;
+  ListNode<T>* tail = nullptr;
+
   DoublyLinkedList() {}
 
   ~DoublyLinkedList() {
@@ -94,16 +100,7 @@ class DoublyLinkedList {
     return size;
   }
 
-  // IDEA: I don't know if returning type* const reduces the usefulness of the function
-  ListNode<T>* getHead() {
-    return this->head;
-  }
-
-  ListNode<T>* getTail() {
-    return this->tail;
-  }
-
-// need to instansiate head and tail as the same as soon as an element is added
+  // need to instansiate head and tail as the same as soon as an element is added
   ListNode<T>* insertBeforeHead(T& data) {
     auto init = initialiseFirstElement(data);
     if (init) return init;
@@ -115,7 +112,7 @@ class DoublyLinkedList {
   ListNode<T>* insertAfterHead(T& data) {
     auto init = initialiseFirstElement(data);
     if (init) return init;
-    
+
     ListNode<T>* afterHead = this->insertAfterNode(data, head);
     return afterHead;
   }
@@ -123,7 +120,7 @@ class DoublyLinkedList {
   ListNode<T>* insertBeforeTail(T& data) {
     auto init = initialiseFirstElement(data);
     if (init) return init;
-    
+
     ListNode<T>* beforeTail = this->insertBeforeNode(data, tail);
     return beforeTail;
   }
@@ -131,7 +128,7 @@ class DoublyLinkedList {
   ListNode<T>* insertAfterTail(T& data) {
     auto init = initialiseFirstElement(data);
     if (init) return init;
-    
+
     this->tail = this->insertAfterNode(data, tail);
     return this->tail;
   }
@@ -140,11 +137,11 @@ class DoublyLinkedList {
   ListNode<T>* insertBeforeNode(T& data, ListNode<T>* node) {
     auto tempprev = node->prev;
     auto newnode = new ListNode<T>{data};
-    
+
     if (tempprev) {
-      head = newnode;   // if node.prev is null then the node was the head, this makes the new node the new head
+      head = newnode;  // if node.prev is null then the node was the head, this makes the new node the new head
     }
-    
+
     node->prev = newnode;
     newnode->next = node;
     newnode->prev = tempprev;
@@ -158,13 +155,13 @@ class DoublyLinkedList {
   ListNode<T>* insertAfterNode(T& data, ListNode<T>* node) {
     auto tempnext = node->next;
     auto newnode = new ListNode<T>{data};
-    
+
     if (!tempnext) {
-      tail = newnode;   // if tempnext is null then the node was the tail, this makes the new node the new tail
+      tail = newnode;  // if tempnext is null then the node was the tail, this makes the new node the new tail
     }
-    
+
     node->next = newnode;
-    newnode->prev = node;       
+    newnode->prev = node;
     newnode->next = tempnext;
 
     ++size;
@@ -195,7 +192,7 @@ class DoublyLinkedList {
   }
 
   DoublyLinkedList<T>& operator=(const DoublyLinkedList<T>& list) {
-    if(this == &list) return *this;
+    if (this == &list) return *this;
     copyListContent(list);
     return *this;
   }
@@ -225,32 +222,21 @@ class DoublyLinkedList {
     return temp;
   }
 
-  template<typename U>
-  friend ostream& operator<<(ostream& o, const DoublyLinkedList<U>& l);
-};
+  friend ostream& operator<<(ostream& o, const DoublyLinkedList<T>& l) {
+    if (l.head == nullptr && l.tail == nullptr) {
+      o << "{ }";
+    } else {
+      o << "{ ";
+      ListNode<T>* curr = l.head;
 
+      while (curr != l.tail) {
+        o << curr->data << ", ";
+        curr = curr->next;
+      }
 
-template <typename U>
-ostream& operator<<(ostream& o, const ListNode<U>& l) {
-  o << l.data;
-  return o;
-}
-
-template <typename U>
-ostream& operator<<(ostream& o, const DoublyLinkedList<U>& l) {
-  if (l.head == nullptr && l.tail == nullptr) {
-    o << "{ }";
-  } else {
-    o << "{ ";
-    ListNode<U>* curr = l.head;
-
-    while (curr != l.tail) {
-      o << curr->data << ", ";
-      curr = curr->next;
+      o << l.tail->data << " }";
     }
 
-    o << l.tail->data << " }";
+    return o;
   }
- 
-  return o;
-}
+};
