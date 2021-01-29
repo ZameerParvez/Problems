@@ -5,6 +5,9 @@
 
 namespace Algorithms {
 
+using DataStructures::DoublyLinkedList;
+using DataStructures::ListNode;
+
 // Adds 2 decimal numbers where the digits are stored as a linked list starting with the least significant digit
 class AddTwoNumbers : public Algorithm {
  private:

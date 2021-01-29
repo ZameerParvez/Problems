@@ -7,6 +7,7 @@
 using std::stack;
 using std::string;
 using std::vector;
+using DataStructures::operator<<;
 
 using namespace Algorithms;
 
@@ -20,7 +21,7 @@ int DaysUntilHotter::parseInput(istream& input) {
   while (s >> curr) {
     tempsOnDays.emplace_back(curr);
   }
-  
+
   return 0;
 }
 
@@ -40,8 +41,8 @@ int DaysUntilHotter::solve(ostream& output) {
     daysUntilHotter[i] = st.empty() ? 0 : st.top() - i;
     st.push(i);
   }
-  
-  output << "The number of days until the next hotter day, for the given days are " <<  daysUntilHotter << std::endl;
+
+  output << "The number of days until the next hotter day, for the given days are " << daysUntilHotter << std::endl;
 
   return 0;
 }

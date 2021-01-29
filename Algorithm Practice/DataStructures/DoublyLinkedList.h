@@ -3,6 +3,8 @@
 #include <ostream>
 #include <vector>
 
+namespace DataStructures {
+
 using std::ostream;
 // IDEA: need to decide if should use & or pointer in return types
 
@@ -240,3 +242,5 @@ class DoublyLinkedList {
     return o;
   }
 };
+
+}  // namespace DataStructures
