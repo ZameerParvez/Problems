@@ -3,7 +3,9 @@
 #include <ostream>
 #include <vector>
 
-template<typename T>
+namespace DataStructures {
+
+template <typename T>
 std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
   if (vec.size() == 0) {
     o << "{ }";
@@ -19,3 +21,5 @@ std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
 
   return o;
 }
+
+}  // namespace DataStructures

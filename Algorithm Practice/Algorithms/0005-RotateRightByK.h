@@ -5,6 +5,9 @@
 
 namespace Algorithms {
 
+using DataStructures::DoublyLinkedList;
+using DataStructures::ListNode;
+
 // This algorithm rotates a linked list right by k, so that the (size - kth) element becomes the new end of the list
 class RotateRightK : public Algorithm {
  private:
