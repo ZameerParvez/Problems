@@ -10,6 +10,7 @@ set(
   0004-SmallestSubstrWithSameOrder.cpp
   0005-RotateRightByK.cpp
   0006-DaysUntilHotter.cpp
+  0007-MergeIntervals.cpp
 )
 
 # add the Util library

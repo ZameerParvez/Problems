@@ -1,7 +1,5 @@
 #include "0003-CoinChange.h"
 
-#include "../DataStructures/ArrayList.h"
-
 using std::vector;
 
 using namespace Algorithms;
@@ -32,9 +30,9 @@ int CoinChange::solve(ostream& output) {
   }
 
   // IDEA: Could be able to use less memory by only storing and calculating results in denom[x]-denom[0] sized array, this would involve looping in a window of denom[x]-denom[0], in the inner while loop, until the target is reached
-  int memsize = target + 1; // memory to store solutions to sub problems
+  int memsize = target + 1;  // memory to store solutions to sub problems
   int* mem = new int[memsize];
-  
+
   // making sure memory is zeroed
   int i = 0;
   for (int i = 0; i < memsize; i++) {
@@ -42,7 +40,7 @@ int CoinChange::solve(ostream& output) {
   }
 
   int smallestDenom = denominations[0];
-  mem[0] = 1; // only 1 way to make 0
+  mem[0] = 1;  // only 1 way to make 0
 
   // This uses the relation f(n,d[0..x])=f(n,d[0..x-1])+f(n-d[x],d[0..x])
   // It first calculates solutions for d(n,d[0])=d(n-d[0],d[0]) because these solutions to larger problems depend on these, and it is simple to calculate for the smallest denomination
@@ -53,7 +51,7 @@ int CoinChange::solve(ostream& output) {
   for (int d : denominations) {
     int subT = d;
     while (subT <= target) {
-      mem[subT] += mem[subT-d];
+      mem[subT] += mem[subT - d];
       subT++;
     }
   }
@@ -61,7 +59,7 @@ int CoinChange::solve(ostream& output) {
   int solution = mem[target];
 
   output << "Total number of ways to make " << target << " is " << solution << std::endl;
-  
+
   delete[] mem;
   return 0;
 }

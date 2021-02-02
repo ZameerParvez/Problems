@@ -23,6 +23,8 @@ AlgorithmWrapper choose(int i) {
       return AlgorithmWrapper{new RotateRightK{}};
     case 6:
       return AlgorithmWrapper{new DaysUntilHotter{}};
+    case 7:
+      return AlgorithmWrapper{new MergeIntervals{}};
     default:
       return AlgorithmWrapper{new Test{}};
   }

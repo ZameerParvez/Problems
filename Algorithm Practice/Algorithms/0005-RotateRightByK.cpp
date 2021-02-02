@@ -6,7 +6,7 @@ using namespace Algorithms;
 
 int RotateRightK::parseInput(istream& input) {
   LOG(50, "Rotating linked list right by k");
-  
+
   string line;
   getline(input, line);
   std::stringstream s{line};
@@ -22,7 +22,7 @@ int RotateRightK::parseInput(istream& input) {
 
 int RotateRightK::solve(ostream& output) {
   TIMER("Timer for rotating linked list right by k");
-  
+
   ListNode<int>* actualHead = rotateRight(list.head, kright);
   ListNode<int>* newtail = list.head;
   while (newtail->next) {

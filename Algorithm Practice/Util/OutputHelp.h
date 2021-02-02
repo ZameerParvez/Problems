@@ -1,9 +1,10 @@
 #pragma once
 
 #include <ostream>
+#include <tuple>
 #include <vector>
 
-namespace DataStructures {
+namespace Util {
 
 template <typename T>
 std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
@@ -22,4 +23,10 @@ std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
   return o;
 }
 
-}  // namespace DataStructures
+template <typename T>
+std::ostream& operator<<(std::ostream& o, const std::pair<T, T>& p) {
+  o << "{ " << p.first << ", " << p.second << " }";
+  return o;
+}
+
+}  // namespace Util
