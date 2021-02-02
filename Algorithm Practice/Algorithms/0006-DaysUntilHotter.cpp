@@ -2,12 +2,12 @@
 
 #include <stack>
 
-#include "../DataStructures/ArrayList.h"
+#include "../Util/OutputHelp.h"
 
 using std::stack;
 using std::string;
 using std::vector;
-using DataStructures::operator<<;
+using Util::operator<<;
 
 using namespace Algorithms;
 

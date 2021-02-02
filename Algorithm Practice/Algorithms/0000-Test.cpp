@@ -1,11 +1,11 @@
 #include <vector>
 
-#include "../DataStructures/ArrayList.h"
+#include "../Util/OutputHelp.h"
 #include "0000-Test.h"
 
 using std::vector;
 using std::string;
-using DataStructures::operator<<;
+using Util::operator<<;
 
 using namespace Algorithms;
 

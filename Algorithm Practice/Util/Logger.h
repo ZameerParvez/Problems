@@ -79,7 +79,7 @@ struct LogMessage {
     if (m.file != "") {
       o << "FILE: " << m.file << " | LINE: " << m.linenum << " | ";
     }
-    o << m.message << " | LL" << m.logLevel << '\n';
+    o << "LL" << m.logLevel << " | " << m.message << '\n';
     return o;
   }
 };
