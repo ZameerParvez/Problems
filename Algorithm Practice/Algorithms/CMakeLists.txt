@@ -11,6 +11,7 @@ set(
   0005-RotateRightByK.cpp
   0006-DaysUntilHotter.cpp
   0007-MergeIntervals.cpp
+  0008-BuildBinaryTreeWithInorderAndPreorder.cpp
 )
 
 # add the Util library

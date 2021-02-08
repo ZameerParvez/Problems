@@ -25,6 +25,8 @@ AlgorithmWrapper choose(int i) {
       return AlgorithmWrapper{new DaysUntilHotter{}};
     case 7:
       return AlgorithmWrapper{new MergeIntervals{}};
+    case 8:
+      return AlgorithmWrapper{new BuildBinaryTreeIP{}};
     default:
       return AlgorithmWrapper{new Test{}};
   }
