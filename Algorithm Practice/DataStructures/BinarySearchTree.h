@@ -1,8 +1,9 @@
 #pragma once
 
-#include <iostream>
 #include <ostream>
-#include <vector>
+#include <string>
+
+#include "BinaryTree.h"
 
 // TODO: add copy constructor and assignment operator
 // the copy constructor could be implemented by adding new nodes to a new tree in a breadth first way
@@ -16,36 +17,11 @@
 // nodes will have only references to their children and some data
 namespace DataStructures {
 
-template <typename T>
-struct BinaryTreeNode {
-  T data;
-  BinaryTreeNode* left = nullptr;
-  BinaryTreeNode* right = nullptr;
-  BinaryTreeNode(T d) : data{d} {}
-
-  friend std::ostream& operator<<(std::ostream& o, const BinaryTreeNode<T>* node) {
-    if (node == nullptr) return o;
-    o << node->left;
-    o << node->data << ", ";
-    o << node->right;
-    return o;
-  }
-};
-
 // does not allow duplicate entries
 template <typename T>
 class SimpleBST {
  private:
   BinaryTreeNode<T>* root = nullptr;
-
-  bool DeleteSubTree(BinaryTreeNode<T>* node) {
-    if (node == nullptr) return false;
-    // do deletions in postorder
-    DeleteSubTree(node->left);
-    DeleteSubTree(node->right);
-    delete node;
-    return true;
-  }
 
  public:
   SimpleBST(const std::vector<T>& in) {
@@ -227,11 +203,7 @@ class SimpleBST {
   }
 
   friend std::ostream& operator<<(std::ostream& o, const SimpleBST<T>& bst) {
-    o << "{ ";
-    if (bst.root != nullptr) {
-      o << bst.root;
-    }
-    o << " }";
+    o << binaryTreeToString(bst.root, BinaryTreeTraverseOrder::INORDER);
     return o;
   }
 };
