@@ -1,6 +1,6 @@
 # Problems
 ## Overview
-This repo is for my own learning purposes. It is a collection of algorithms and data structures implemented in C++17, and includes some other utilities that I think could be useful in another project.
+This repo is for my own learning purposes. It is a collection of algorithms, data structures, and any solutions to other problems, implemented in C++17, and includes some other utilities that I think could be useful in another project.
 
 ## How to Use
 - There is a build script which can be executed, and does the following
@@ -8,12 +8,12 @@ This repo is for my own learning purposes. It is a collection of algorithms and 
       cmake -S . -B build
       make
 
-- The compiled binary is currently called "Practice" and running it will print a help message explaining how to use the executable
+- The compiled binary is currently called "Problems" and running it will print a help message explaining how to use the executable
 - The help message currently printed is
 
       Example Useage:
       
-      ./Practice <algorithm-id> <input-path> <output-path>
+      ./Problems <algorithm-id> <input-path> <output-path>
 
       <algorithm-id> should be a 4 digit code that matches the id of the algorithm that you want to run
       <input-path> is required, and the inputs should match the format of the sample inputs provided in the SampleInputs directory
