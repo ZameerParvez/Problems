@@ -10,7 +10,7 @@ using std::string;
 static const char helpMessage[] =
 "\
 Example Useage:\n\
-\t./Practice <algorithm-id> <input-path> <output-path>\n\
+\t./Problems <algorithm-id> <input-path> <output-path>\n\
 \n\
 <algorithm-id> should be a 4 digit code that matches the id of the algorithm that you want to run\n\
 <input-path> is required, and the inputs should match the format of the sample inputs provided in the SampleInputs directory\n\
